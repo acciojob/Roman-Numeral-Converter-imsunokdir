@@ -1,4 +1,5 @@
-document.getElementById("romanConverter").addEventListener('submit', function(e) {
+let romanConverter = document.getElementById("romanConverter");
+romanConverter.addEventListener('submit', function(e) {
     e.preventDefault();
     const numberInput = document.getElementById('numberInput').value;
     const num = Number(numberInput);
