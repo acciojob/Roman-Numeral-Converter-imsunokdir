@@ -1,10 +1,6 @@
 document.getElementById("romanConverter").addEventListener('submit', function(e) {
     e.preventDefault();
-    
-    // Get the value from the input field
     const numberInput = document.getElementById('numberInput').value;
-    
-    // Convert the input to a number
     const num = Number(numberInput);
     
     // Validate if the number is within the acceptable range
@@ -21,23 +17,32 @@ document.getElementById("romanConverter").addEventListener('submit', function(e)
 });
 
 function convertToRoman(num) {
-    // Define the Roman numeral symbols and their values
-    const obj = [
-        ['M', 1000], 
-        ['D', 500], 
-        ['C', 100], 
-        ['L', 50], 
-        ['X', 10], 
-        ['V', 5], 
+    if (num < 1 || num > 100000) {
+        throw new Error('Number out of range. Please enter a number between 1 and 100000.');
+		
+    }
+
+    const romanNumerals = [
+        ['M', 1000],
+        ['CM', 900],
+        ['D', 500],
+        ['CD', 400],
+        ['C', 100],
+        ['XC', 90],
+        ['L', 50],
+        ['XL', 40],
+        ['X', 10],
+        ['IX', 9],
+        ['V', 5],
+        ['IV', 4],
         ['I', 1]
     ];
 
     let result = '';
 
-    // Iterate over the symbols and values
-    for (const [roman, value] of obj) {
+    for (let [symbol, value] of romanNumerals) {
         while (num >= value) {
-            result += roman;
+            result += symbol;
             num -= value;
         }
     }
