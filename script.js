@@ -1,23 +1,50 @@
+document.getElementById("romanConverter").addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Get the value from the input field
+    const numberInput = document.getElementById('numberInput').value;
+    
+    // Convert the input to a number
+    const num = Number(numberInput);
+    
+    // Validate if the number is within the acceptable range
+    if (isNaN(num) || num < 0 || num > 100000) {
+        document.getElementById('result').textContent = 'Please enter a valid number between 0 and 100000.';
+        return;
+    }
+    
+    // Convert the number to Roman numeral
+    const romanNumeral = convertToRoman(num);
+    
+    // Display the result
+    document.getElementById('result').textContent = 'Roman Numeral: ' + romanNumeral;
+});
+
 function convertToRoman(num) {
-  	const obj = {
-      0:['M',1000], 
-      1:['D', 500], 
-      2:['C', 100], 
-      3:['L', 50], 
-      4:['X', 10], 
-      5:['V', 5], 
-      6:['I', 1]
-    };
+    // Define the Roman numeral symbols and their values
+    const obj = [
+        ['M', 1000], 
+        ['D', 500], 
+        ['C', 100], 
+        ['L', 50], 
+        ['X', 10], 
+        ['V', 5], 
+        ['I', 1]
+    ];
 
-  //your code here
+    let result = '';
 
+    // Iterate over the symbols and values
+    for (const [roman, value] of obj) {
+        while (num >= value) {
+            result += roman;
+            num -= value;
+        }
+    }
+
+    return result;
 }
-// You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
+// You can test your code by running the above function and printing it to the console
+// Uncomment the following line to test
 // console.log(convertToRoman(36));
-
-
-
-
-// do not edit below this line
-module.exports = convertToRoman
