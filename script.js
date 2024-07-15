@@ -1,19 +1,19 @@
-let romanConverter = document.getElementById("romanConverter");
-romanConverter.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const numberInput = document.getElementById('numberInput').value;
-    const num = Number(numberInput);
-    if (isNaN(num) || num < 0 || num > 100000) {
-        document.getElementById('result').textContent = 'Please enter a valid number between 0 and 100000.';
-        return;
-    }
+// let romanConverter = document.getElementById("romanConverter");
+// romanConverter.addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     const numberInput = document.getElementById('numberInput').value;
+//     const num = Number(numberInput);
+//     if (isNaN(num) || num < 0 || num > 100000) {
+//         document.getElementById('result').textContent = 'Please enter a valid number between 0 and 100000.';
+//         return;
+//     }
     
-    // Convert the number to Roman numeral
-    const romanNumeral = convertToRoman(num);
+//     // Convert the number to Roman numeral
+//     const romanNumeral = convertToRoman(num);
     
-    // Display the result
-    document.getElementById('result').textContent = 'Roman Numeral: ' + romanNumeral;
-});
+//     // Display the result
+//     document.getElementById('result').textContent = 'Roman Numeral: ' + romanNumeral;
+// });
 
 function convertToRoman(num) {
     if (num < 1 || num > 100000) {
