@@ -2,8 +2,6 @@ document.getElementById("romanConverter").addEventListener('submit', function(e)
     e.preventDefault();
     const numberInput = document.getElementById('numberInput').value;
     const num = Number(numberInput);
-    
-    // Validate if the number is within the acceptable range
     if (isNaN(num) || num < 0 || num > 100000) {
         document.getElementById('result').textContent = 'Please enter a valid number between 0 and 100000.';
         return;
