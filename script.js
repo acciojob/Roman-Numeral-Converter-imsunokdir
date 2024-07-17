@@ -15,7 +15,7 @@
 //     document.getElementById('result').textContent = 'Roman Numeral: ' + romanNumeral;
 // });
 
-function convertToRoman(num) {
+function romanConverter(num) {
     if (num < 1 || num > 100000) {
         throw new Error('Number out of range. Please enter a number between 1 and 100000.');
 		
@@ -52,3 +52,4 @@ function convertToRoman(num) {
 // You can test your code by running the above function and printing it to the console
 // Uncomment the following line to test
 // console.log(convertToRoman(36));
+module.exports = romanConverter
